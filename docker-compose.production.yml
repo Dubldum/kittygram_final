@@ -16,6 +16,8 @@ services:
     volumes:
       - static:/backend_static 
       - media:/app/media/
+    depends_on:
+      - db
   frontend:
     env_file: .env
     image:  dubldum/kittygram_frontend
@@ -30,4 +32,5 @@ services:
     volumes:
       - static:/static
       - media:/app/media/
-
+    depends_on:
+      - db
