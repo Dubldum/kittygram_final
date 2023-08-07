@@ -3,7 +3,7 @@ version: '3'
 volumes:
   pg_data:
   static:
-
+  media:
 services:
   db:
     image: postgres:13
@@ -15,6 +15,7 @@ services:
     env_file: .env
     volumes:
       - static:/backend_static 
+      - media:/app/media/
   frontend:
     env_file: .env
     image:  dubldum/kittygram_frontend
@@ -28,3 +29,5 @@ services:
       - 9000:80
     volumes:
       - static:/static
+      - media:/app/media/
+
